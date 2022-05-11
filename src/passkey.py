@@ -1,7 +1,8 @@
 
 import sys
+from venv import create
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from ui import Ui_MainWindow
 from encryption import decrypt_msg,encrpyt_msg,generate_key
 from json_handler import json_save,json_retrieve,check_occupancy,create_new_acc
@@ -37,10 +38,28 @@ class main_window():
                 i.setEnabled(True)
 
         if self.ui.main.currentWidget() == self.ui.newuser_page:
-            username = self.ui.create_username.text()
-            password = self.ui.create_password.text()
+            for i in nav_buttons:
+                i.setEnabled(False)
+            self.ui.pushButton.clicked.connect(lambda: self.create_user_clicked())
+        else:
+            for i in nav_buttons:
+                i.setEnabled(False)
+
             
-   
+
+    def create_user_clicked(self):
+        username = self.ui.create_username.text()
+        password = self.ui.create_password.text()
+        if username == "" or password == "":
+            msg = QMessageBox()
+            msg.setWindowTitle("error")
+            msg.setText("Error")
+            msg.setIcon(QMessageBox.Warning)
+            msg.setInformativeText("Empty username or password")
+            x = msg.exec_()
+        else:
+            create_new_acc(username,password)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
