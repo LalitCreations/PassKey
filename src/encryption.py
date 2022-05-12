@@ -15,7 +15,4 @@ def decrypt_msg(message):
     key = open("src/encryption_keys.key", "rb").read()
     fernet = Fernet(key)
     dec_message = fernet.decrypt(message).decode()
-    return dec_message
-    
-
-
+    return dec_message  
