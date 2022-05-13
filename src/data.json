@@ -1,10 +1,6 @@
 {
       "user_data": {
-            "username": "lalit",
-            "password": "gAAAAABiff2ja3uJyGXTq-yVWG4GkFA3EnM-pzEw6h-ciMWjLU_L7LPCf34Ts90qPE5jEr5MaudxVEIZOea1Dk8FTEEd3leg7Q=="
-      },
-      "lol": {
-            "username": "gAAAAABiff2yoo3tiYlTqdxv8ghtKqCx_4jgAIgs8DRXoVVihCKEli_g3PDHPJer9Q-0YMDGzMuqffGm0l3w0UjzhjcPwJ_3Pw==",
-            "password": "gAAAAABiff2yvfvMZ4zhTDw2OutdvrZrdpH7S6oPyQLveN11x5ESgkxTeupLTp5xcw-RA4YplyMcvaL-imqdq7Wcd32GHVcncQ=="
+            "username": null,
+            "password": null
       }
 }
