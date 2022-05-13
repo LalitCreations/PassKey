@@ -823,7 +823,7 @@ class Ui_MainWindow(object):
         self.label_22.setText(_translate("MainWindow", "PassKey"))
         self.label_24.setText(_translate("MainWindow", "Version : 2.0.0"))
         self.label_23.setText(_translate("MainWindow", "Author : G . Lalit Kartikeyan"))
-        self.label_26.setText(_translate("MainWindow", "<html><head/><body><p>Source : <a href=\"www.github.com\"><span style=\" text-decoration: underline; color:#2980b9;\">GitHub</span></a></p></body></html>"))
+        self.label_26.setText(_translate("MainWindow", "<html><head/><body><p>Source : <a href=\"https://github.com/LalitCreations/PassKey\"><span style=\" text-decoration: underline; color:#2980b9;\">GitHub</span></a></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "Save"))
         self.label_17.setText(_translate("MainWindow", "DataTitle:"))
         self.label_16.setText(_translate("MainWindow", "Username:"))

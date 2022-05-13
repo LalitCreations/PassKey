@@ -1,8 +1,7 @@
-
 import sys
-from venv import create
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PyQt5.QtGui import QFont
 from ui import Ui_MainWindow
 from encryption import decrypt_msg,encrpyt_msg,generate_key
 from json_handler import json_save,json_retrieve,check_occupancy,create_new_acc
@@ -29,8 +28,12 @@ class main_window():
         
     def main(self):
         nav_buttons = [self.ui.home,self.ui.about,self.ui.retrieve,self.ui.save]
+        self.ui.home.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.home_page))
+        self.ui.about.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.about_page))
+        self.ui.retrieve.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.retrieve_page))
+        self.ui.save.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.save_page))
 
-        #login code block
+        #login page code block
         if self.ui.main.currentWidget() == self.ui.login_page:
             for i in nav_buttons:
                 i.setEnabled(False)
@@ -38,18 +41,26 @@ class main_window():
             text = "Welcome Back " + usr+"!"
             self.ui.label_10.setText(text)
             self.ui.pushButton_2.clicked.connect(lambda: self.login())
-        else:
-            for i in nav_buttons:
-                i.setEnabled(True)
 
-        #new user code block
+        #new user page code block
         if self.ui.main.currentWidget() == self.ui.newuser_page:
             for i in nav_buttons:
                 i.setEnabled(False)
             self.ui.pushButton.clicked.connect(lambda: self.create_user_clicked())
-        else:
+
+
+        #home page code block
+        if self.ui.main.currentWidget() != self.ui.login_page and self.ui.main.currentWidget() != self.ui.newuser_page:
             for i in nav_buttons:
                 i.setEnabled(True)
+        self.ui.pushButton_4.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.save_page))
+        self.ui.pushButton_3.clicked.connect(lambda: self.ui.main.setCurrentWidget(self.ui.retrieve_page))
+
+        #save page code block    
+        self.ui.pushButton_5.clicked.connect(lambda: self.save_data())  
+
+        #retrieve page code block
+        self.ui.retireve_button.clicked.connect(lambda: self.retrieve_data())
 
             
 
@@ -88,6 +99,37 @@ class main_window():
             msg.setInformativeText("Empty username or password")
             x = msg.exec_()
 
+    def save_data(self):
+        dtext = self.ui.datatitle.text()
+        utext = self.ui.username.text()
+        ptext = self.ui.password.text()
+        username = encrpyt_msg(utext).decode("utf-8")
+        password = encrpyt_msg(ptext).decode("utf-8")
+        json_save(dtext,username,password)
+        self.ui.savesatus.setFont(QFont("Noto Sans",18))
+        self.ui.savesatus.setText("Save Successful!")
+        for i in [self.ui.datatitle,self.ui.username,self.ui.password]:
+            i.clear()
+
+    def retrieve_data(self):
+        
+        text = self.ui.retrieve_datatitle_in.text()
+        if json_retrieve(text) != "NotFound":
+            username,password=json_retrieve(text)
+            username = decrypt_msg(bytes(username,"utf-8"))
+            password = decrypt_msg(bytes(password,"utf-8"))
+            str1 = "DataTitle: " + text
+            str2 = "UserName: " + username
+            str3 = "Password: " + password
+            self.ui.retrieve_datatitle_2.setText(str1)
+            self.ui.retrieve_username.setText(str2)
+            self.ui.retrieve_password.setText(str3)
+            self.ui.retrieve_datatitle_in.clear()
+            self.ui.retrieve_status.setFont(QFont("Noto Sans",18))
+            self.ui.retrieve_status.setText("Retrieve Successful!")
+        else:
+            self.ui.retrieve_status.setFont(QFont("Noto Sans",18))
+            self.ui.retrieve_status.setText("Retrieve Successful!")
 
 
 

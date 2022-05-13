@@ -21,7 +21,8 @@ def json_save(title,user,pswd):
     save_dict[title]=save_dict.pop("datatitle")
     dump_dict["username"] = user
     dump_dict["password"] = pswd
-    save_dict["title"]=dump_dict
+    save_dict[title]=dump_dict
+
 
 
     with open(file_path,"r") as file:
@@ -37,14 +38,18 @@ def json_save(title,user,pswd):
 
 
 def json_retrieve(datatitle):
-    with open(file_path,"r") as file:
-        data = json.load(file)
+    try:
+        with open(file_path,"r") as file:
+            data = json.load(file)
         
-    data =  data[datatitle]
-    username = data["username"]
-    password= data["password"]
-    file.close()    
-    return username,password
+        data =  data[datatitle]
+        username = data["username"]
+        password= data["password"]
+        file.close()    
+        return username,password
+    except:
+        text = "NotFound"
+        return text
 
 
 
@@ -69,3 +74,4 @@ def create_new_acc(username,password):
     data["password"] = password
     with open(file_path, "w") as file:
         json.dump(dict_data, file,indent=6)
+
