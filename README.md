@@ -9,7 +9,7 @@
 2. Run PassKey_Windows.msi to complete the installation
 
 ## installation for linux
-1. Download to PassKey.tar.xz file: [url](link)
+1. Download to PassKey.tar.xz file: [url](https://github.com/LalitCreations/PassKey/blob/master/PassKey.tar.xz)
 2. extract PassKey.tar.xz file
 3. change directory to the extracted folder
 4. replace "ADD PATH HERE" in PassKey.desktop to the path of the extracted folder
@@ -24,8 +24,8 @@
 `python3 src/passkey.py`
 
 # preview
-![preview1](resources/preview1.png)
-![preview2](resources/preview2.png)
+![preview1](https://github.com/LalitCreations/PassKey/blob/master/resources/preview1.png)
+![preview2](https://github.com/LalitCreations/PassKey/blob/master/resources/preview2.png)
 
 
 
