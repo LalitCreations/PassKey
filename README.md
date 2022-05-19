@@ -1,6 +1,6 @@
 # PassKey
 **A open source program to safely save your passwords**
-<!--<img align="right" width="100" height="100" src="https://github.com/LalitCreations/PassKey/blob/master/resources/passkey%20logo.png">-->
+<img align="right" width="100" height="100" src="https://github.com/LalitCreations/PassKey/blob/master/resources/passkey%20logo.png">
 
 # installation
 ## installation for windows
