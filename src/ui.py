@@ -9,7 +9,8 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(856, 776))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(856, 776))
-        self.centralwidget.setStyleSheet("background-color:rgb(32,32,32);")
+        self.centralwidget.setStyleSheet("background-color:rgb(32,32,32);\n"
+        "color:white;")
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -27,6 +28,7 @@ class Ui_MainWindow(object):
 "\n"
 "QFrame{\n"
 "border-width:0px;\n"
+"color:white;\n"
 "}")
         self.side_panel.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.side_panel.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -82,6 +84,7 @@ class Ui_MainWindow(object):
         self.home.setFont(font)
         self.home.setStyleSheet("QPushButton{\n"
 "background-color:rgba(0,0,0,0);\n"
+"color:white;\n"
 "font: 18pt \"Impact\";\n"
 "border-width:0px;\n"
 "}\n"
@@ -95,6 +98,9 @@ class Ui_MainWindow(object):
 "{\n"
 "   background-color:rgba(0,0,0,80);\n"
 "}\n"
+"QPushButton:disabled{\n"
+"color:rgba(0,0,0,0)\n"
+"}"
 "\n"
 "")
         self.home.setFlat(True)
@@ -111,6 +117,7 @@ class Ui_MainWindow(object):
         self.save.setFont(font)
         self.save.setStyleSheet("QPushButton{\n"
 "background-color:rgba(0,0,0,0);\n"
+"color:white;\n"
 "font: 18pt \"Impact\";\n"
 "border-width:0px;\n"
 "}\n"
@@ -124,6 +131,9 @@ class Ui_MainWindow(object):
 "{\n"
 "   background-color:rgba(0,0,0,80);\n"
 "}\n"
+"QPushButton:disabled{\n"
+"color:rgba(0,0,0,0)\n"
+"}"
 "\n"
 "")
         self.save.setFlat(True)
@@ -140,6 +150,7 @@ class Ui_MainWindow(object):
         self.retrieve.setFont(font)
         self.retrieve.setStyleSheet("QPushButton{\n"
 "background-color:rgba(0,0,0,0);\n"
+"color:white;\n"
 "font: 18pt \"Impact\";\n"
 "border-width:0px;\n"
 "}\n"
@@ -153,6 +164,9 @@ class Ui_MainWindow(object):
 "{\n"
 "   background-color:rgba(0,0,0,80);\n"
 "}\n"
+"QPushButton:disabled{\n"
+"color:rgba(0,0,0,0)\n"
+"}"
 "\n"
 "")
         self.retrieve.setFlat(True)
@@ -169,6 +183,7 @@ class Ui_MainWindow(object):
         self.about.setFont(font)
         self.about.setStyleSheet("QPushButton{\n"
 "background-color:rgba(0,0,0,0);\n"
+"color:white;\n"
 "font: 18pt \"Impact\";\n"
 "border-width:0px;\n"
 "}\n"
@@ -182,6 +197,9 @@ class Ui_MainWindow(object):
 "{\n"
 "   background-color:rgba(0,0,0,80);\n"
 "}\n"
+"QPushButton:disabled{\n"
+"color:rgba(0,0,0,0)\n"
+"}"
 "\n"
 "")
         self.about.setFlat(True)

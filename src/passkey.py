@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
-from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QFont, QIcon
 from ui import Ui_MainWindow
 from encryption import decrypt_msg,encrpyt_msg,generate_key
 from json_handler import json_save,json_retrieve,check_occupancy,create_new_acc
@@ -14,6 +14,7 @@ class main_window():
         self.mainwin = QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.mainwin)
+        self.mainwin.setWindowIcon(QIcon("resources/passkey logo.png"))
         if check_occupancy():
            self.ui.main.setCurrentWidget(self.ui.newuser_page)
            nav_buttons = [self.ui.home,self.ui.about,self.ui.retrieve,self.ui.save]
